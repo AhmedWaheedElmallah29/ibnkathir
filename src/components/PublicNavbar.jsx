@@ -1,9 +1,9 @@
-import { LuGlobe } from "react-icons/lu";
-import Logo from "./Logo";
-import EmergencyBadge from "./EmergencyBadge";
+import { LuGlobe } from "react-icons/lu"
+import Logo from "./Logo"
+import EmergencyBadge from "./EmergencyBadge"
 
 const navLinkClass =
-  "relative whitespace-nowrap text-sm font-medium transition-colors duration-200 hover:text-[#D4145A] after:absolute after:right-0 after:-bottom-2 after:h-0.5 after:w-0 after:rounded-full after:bg-[#D4145A] after:transition-all after:duration-300 hover:after:w-full";
+  "relative whitespace-nowrap text-sm font-medium transition-colors duration-200 hover:text-[#D4145A] after:absolute after:right-0 after:-bottom-2 after:h-0.5 after:w-0 after:rounded-full after:bg-[#D4145A] after:transition-all after:duration-300 hover:after:w-full"
 
 export default function PublicNavbar({ navigate }) {
   return (
@@ -78,5 +78,5 @@ export default function PublicNavbar({ navigate }) {
         </div>
       </div>
     </nav>
-  );
+  )
 }

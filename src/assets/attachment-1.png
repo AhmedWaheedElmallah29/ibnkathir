@@ -1,0 +1,481 @@
+I want you to completely rebuild and finish the current medical healthcare platform "عيادتي" (AlTibbaa) as one fully functional, editable React prototype.
+
+IMPORTANT:
+Use ALL currently uploaded screenshots and assets as the visual source of truth.
+
+I do NOT want to upload the missing screenshots again.
+
+The screenshots that are already uploaded must be reproduced as closely as possible.
+For screens that are missing, create them by extending the SAME visual design system shown in the uploaded screens. Do not create a different design.
+
+==================================================
+1. VISUAL DESIGN — VERY IMPORTANT
+==================================================
+
+Preserve the existing visual identity of the uploaded project.
+
+Keep the same:
+- Logo
+- Logo image/asset
+- Images
+- Arabic text style
+- Arabic RTL direction
+- Colors
+- Typography
+- Font sizing
+- Spacing
+- Borders
+- Border radius
+- Shadows
+- Cards
+- Buttons
+- Icons
+- Navigation
+- Headers
+- Sidebars
+- Forms
+- Overall layout
+- Screen proportions
+- Visual hierarchy
+
+Do NOT redesign the existing uploaded screens.
+
+Do NOT create a new visual style.
+
+Do NOT replace the uploaded logo with an AI-generated logo.
+
+Use the uploaded original logo asset exactly.
+
+For missing screens, continue the same design language from the uploaded screens so the entire application looks like ONE consistent product.
+
+==================================================
+2. DO NOT USE SCREENSHOTS AS STATIC UI
+==================================================
+
+Do NOT simply place the screenshots as images inside the application.
+
+Recreate the screens as real editable React components.
+
+Every visible UI element should be a real component whenever applicable.
+
+Examples:
+- Buttons must be real buttons.
+- Text fields must be real inputs.
+- Password fields must be real password inputs.
+- Search fields must be functional.
+- Cards must be clickable when appropriate.
+- Dropdowns/selectors must work.
+- Date selection must work.
+- Time selection must work.
+- Visit type selection must work.
+- Payment selection must work.
+- Navigation must work.
+- Forms must work.
+- Back buttons must work.
+
+The final result must be a functional interactive prototype, not a collection of screenshots.
+
+==================================================
+3. AUTHENTICATION
+==================================================
+
+Create and connect:
+
+Login
+Create Account
+Forgot Password
+Reset Password
+
+Flow:
+
+Login
+→ Homepage
+
+Login
+→ Create Account
+→ successful account creation
+→ Login
+
+Login
+→ Forgot Password
+→ Reset Password
+→ Login
+
+Login must contain real editable fields.
+
+Create Account must contain real editable fields.
+
+Reset Password must contain real editable password fields.
+
+Password fields should support show/hide password.
+
+Add basic form validation and useful validation messages.
+
+==================================================
+4. PATIENT DISCOVERY
+==================================================
+
+Create:
+
+Homepage
+Doctors
+Doctor Profile
+
+Flow:
+
+Homepage
+→ Doctors
+→ Doctor Profile
+
+Doctor cards must be clickable.
+
+Doctor Profile must contain the relevant information shown by the existing screenshots/design.
+
+Preserve the same visual style as the uploaded screens.
+
+==================================================
+5. APPOINTMENT BOOKING
+==================================================
+
+Create and connect:
+
+Date & Time
+Patient Information
+Visit Type
+Payment
+Review / Confirmation
+Booking Success
+
+Main flow:
+
+Doctor Profile
+→ Date & Time
+→ Patient Information
+→ Visit Type
+→ Payment
+→ Review / Confirmation
+→ Booking Success
+
+Make each step functional.
+
+Date selection must work.
+
+Time selection must work.
+
+Visit type selection must work.
+
+Patient information fields must be editable.
+
+Payment method selection must work.
+
+The Review screen must display the information selected in the previous steps.
+
+Confirm Booking must navigate to Booking Success.
+
+The booking information should remain consistent throughout the booking flow.
+
+==================================================
+6. PATIENT PORTAL
+==================================================
+
+Create:
+
+Patient Dashboard
+Appointment Details
+Medical Records
+Prescriptions
+Lab Results
+
+Flow:
+
+Patient Dashboard
+→ Appointment Details
+
+Patient Dashboard
+→ Medical Records
+
+Patient Dashboard
+→ Prescriptions
+
+Patient Dashboard
+→ Lab Results
+
+Dashboard navigation must work.
+
+Cards and relevant navigation elements must be clickable.
+
+Use the same layout and visual language as the uploaded Patient Dashboard.
+
+==================================================
+7. DOCTOR PORTAL
+==================================================
+
+Create:
+
+Doctor Dashboard
+Doctor Schedule
+Waiting Queue
+Patient Record
+Clinical Follow-up
+
+Flow:
+
+Doctor Dashboard
+→ Schedule
+→ Waiting Queue
+→ Patient Record
+→ Clinical Follow-up
+
+Also allow the Doctor Dashboard to navigate directly to the relevant sections when appropriate.
+
+The doctor screens must use the same design system as the uploaded Doctor Dashboard, Schedule, Waiting Queue, and Patient Record screens.
+
+==================================================
+8. SYSTEM STATES
+==================================================
+
+Create:
+
+Loading State
+Error State
+Empty State
+
+The uploaded Loading and Error screens are visual references.
+
+Create the missing Empty State using the same design system.
+
+These states should look like part of the same application.
+
+==================================================
+9. GLOBAL NAVIGATION
+==================================================
+
+Make the navigation functional across the entire application.
+
+Implement:
+- Header navigation
+- Sidebar navigation where shown
+- Back buttons
+- Home navigation
+- Dashboard navigation
+- Relevant cards
+- Relevant links
+- Call-to-action buttons
+
+Do not create navigation destinations that do not exist.
+
+Every destination should lead to the correct existing or newly created screen.
+
+==================================================
+10. DATA AND INTERACTION
+==================================================
+
+Make the prototype dynamic using local mock data/state where necessary.
+
+The user should be able to:
+
+- Type into forms.
+- Search doctors.
+- Select a doctor.
+- Select a date.
+- Select a time.
+- Select a visit type.
+- Select a payment method.
+- Enter patient information.
+- Review the selected information.
+- Confirm a booking.
+- See the booking success screen.
+- Navigate through the patient dashboard.
+- Navigate through the doctor dashboard.
+- Open patient records.
+- Navigate through the clinical follow-up flow.
+
+Use local state/mock data if a real backend is not available.
+
+Do not require a real database or external API for the prototype.
+
+==================================================
+11. RESPONSIVE BEHAVIOR
+==================================================
+
+Preserve the responsive behavior and layout style shown in the uploaded designs.
+
+Support desktop and mobile layouts when the uploaded references show both.
+
+Do not change the visual identity between screen sizes.
+
+Keep Arabic RTL behavior correct.
+
+==================================================
+12. PROJECT STRUCTURE
+==================================================
+
+Organize the application into these six major sections:
+
+01 — Authentication
+- Login
+- Create Account
+- Forgot Password
+- Reset Password
+
+02 — Patient Discovery
+- Homepage
+- Doctors
+- Doctor Profile
+
+03 — Appointment Booking
+- Date & Time
+- Patient Information
+- Visit Type
+- Payment
+- Review / Confirmation
+- Booking Success
+
+04 — Patient Portal
+- Patient Dashboard
+- Appointment Details
+- Medical Records
+- Prescriptions
+- Lab Results
+
+05 — Doctor Portal
+- Doctor Dashboard
+- Schedule
+- Waiting Queue
+- Patient Record
+- Clinical Follow-up
+
+06 — System States
+- Loading
+- Error
+- Empty State
+
+Keep these sections organized and easy to understand.
+
+==================================================
+13. MAIN USER FLOW
+==================================================
+
+The complete patient journey should be:
+
+Login
+→ Homepage
+→ Doctors
+→ Doctor Profile
+→ Date & Time
+→ Patient Information
+→ Visit Type
+→ Payment
+→ Review / Confirmation
+→ Booking Success
+
+==================================================
+14. PATIENT PORTAL FLOW
+==================================================
+
+Patient Dashboard
+→ Appointment Details
+
+Patient Dashboard
+→ Medical Records
+
+Patient Dashboard
+→ Prescriptions
+
+Patient Dashboard
+→ Lab Results
+
+==================================================
+15. DOCTOR FLOW
+==================================================
+
+Doctor Login
+→ Doctor Dashboard
+→ Schedule
+→ Waiting Queue
+→ Patient Record
+→ Clinical Follow-up
+
+==================================================
+16. AUTHENTICATION FLOW
+==================================================
+
+Login
+→ Create Account
+
+Login
+→ Forgot Password
+→ Reset Password
+→ Login
+
+==================================================
+17. SCREEN CREATION RULE
+==================================================
+
+For screens already represented by uploaded screenshots:
+
+Match the uploaded design as closely as possible.
+
+For missing screens:
+
+DO NOT invent a new visual style.
+
+Instead, infer the missing screen structure from the existing uploaded screens and extend the same:
+- design system
+- components
+- colors
+- typography
+- spacing
+- cards
+- buttons
+- forms
+- navigation
+- logo
+- imagery
+- Arabic RTL layout
+
+The missing screens should look like they were designed by the SAME original designer as the uploaded screens.
+
+==================================================
+18. IMPORTANT RESTRICTIONS
+==================================================
+
+Do NOT:
+- Redesign the application.
+- Simplify the existing screens.
+- Replace the logo.
+- Generate a different logo.
+- Replace original images unnecessarily.
+- Change the Arabic text unnecessarily.
+- Change the colors.
+- Change the layout style.
+- Use screenshots as static pages.
+- Leave buttons non-functional when their destination exists.
+- Create unrelated screens.
+- Create unrelated content.
+- Create a different design for missing screens.
+
+==================================================
+19. FINAL REQUIREMENT
+==================================================
+
+The final result must be:
+
+ONE complete Arabic RTL medical healthcare application.
+
+It must:
+1. Match the uploaded screenshots visually.
+2. Use the uploaded logo and assets.
+3. Recreate the UI as editable React components.
+4. Have real interactive inputs and buttons.
+5. Have functional navigation.
+6. Have a complete connected patient booking flow.
+7. Have a connected patient portal.
+8. Have a connected doctor portal.
+9. Include Loading, Error, and Empty states.
+10. Use consistent design for both existing and missing screens.
+11. Use local mock state/data where necessary to make interactions work.
+12. NOT use the screenshots as static images.
+
+Do not stop after creating a few screens.
+Complete the entire connected prototype in one pass.

@@ -1,8 +1,8 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import eslintConfigPrettier from "eslint-config-prettier";
-import { defineConfig } from "eslint/config";
+import js from "@eslint/js"
+import globals from "globals"
+import pluginReact from "eslint-plugin-react"
+import eslintConfigPrettier from "eslint-config-prettier"
+import { defineConfig } from "eslint/config"
 
 export default defineConfig([
   {
@@ -18,4 +18,4 @@ export default defineConfig([
       "react/react-in-jsx-scope": "off",
     },
   },
-]);
+])

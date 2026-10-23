@@ -1,7 +1,6 @@
-
-import { useEffect, useState } from "react";
-import { LuSearch, LuStar, LuMapPin, LuUser } from "react-icons/lu";
-import PublicNavbar from "@/components/PublicNavbar";
+import { useEffect, useState } from "react"
+import { LuSearch, LuStar, LuMapPin, LuUser } from "react-icons/lu"
+import PublicNavbar from "@/components/PublicNavbar"
 
 const allDoctors = [
   {
@@ -82,7 +81,7 @@ const allDoctors = [
     fees: 280,
     gender: "أنثى",
   },
-];
+]
 
 const specialtyOpts = [
   "الكل",
@@ -92,7 +91,7 @@ const specialtyOpts = [
   "أطفال",
   "مخ وأعصاب",
   "نساء",
-];
+]
 
 export default function DoctorsScreen({
   navigate,
@@ -101,32 +100,30 @@ export default function DoctorsScreen({
   specialtyFilter,
   setSpecialtyFilter,
 }) {
-  const [search, setSearch] = useState("");
-  const [selectedSpec, setSelectedSpec] = useState(
-    specialtyFilter || "الكل"
-  );
-  const [onlyAvailable, setOnlyAvailable] = useState(false);
-  const [sortBy, setSortBy] = useState("rating");
+  const [search, setSearch] = useState("")
+  const [selectedSpec, setSelectedSpec] = useState(specialtyFilter || "الكل")
+  const [onlyAvailable, setOnlyAvailable] = useState(false)
+  const [sortBy, setSortBy] = useState("rating")
 
   useEffect(() => {
     if (specialtyFilter) {
-      setSelectedSpec(specialtyFilter);
+      setSelectedSpec(specialtyFilter)
     }
-  }, [specialtyFilter]);
+  }, [specialtyFilter])
 
   function handleSpecialtyChange(specialty) {
-    setSelectedSpec(specialty);
+    setSelectedSpec(specialty)
 
     if (setSpecialtyFilter) {
-      setSpecialtyFilter(specialty);
+      setSpecialtyFilter(specialty)
     }
   }
 
   function handleDoctorSelection(doctor, nextScreen) {
     if (selectDoctor) {
-      selectDoctor(doctor, nextScreen);
+      selectDoctor(doctor, nextScreen)
     } else {
-      navigate(nextScreen);
+      navigate(nextScreen)
     }
   }
 
@@ -136,57 +133,38 @@ export default function DoctorsScreen({
         !search ||
         doctor.name.includes(search) ||
         doctor.spec.includes(search) ||
-        doctor.specialty.includes(search);
+        doctor.specialty.includes(search)
 
       const matchesSpecialty =
-        selectedSpec === "الكل" ||
-        doctor.specialty === selectedSpec;
+        selectedSpec === "الكل" || doctor.specialty === selectedSpec
 
-      const matchesAvailability =
-        !onlyAvailable || doctor.available;
+      const matchesAvailability = !onlyAvailable || doctor.available
 
-      return (
-        matchesSearch &&
-        matchesSpecialty &&
-        matchesAvailability
-      );
+      return matchesSearch && matchesSpecialty && matchesAvailability
     })
     .sort((a, b) => {
       if (sortBy === "rating") {
-        return b.rating - a.rating;
+        return b.rating - a.rating
       }
 
       if (sortBy === "price") {
-        return a.price - b.price;
+        return a.price - b.price
       }
 
-      return 0;
-    });
+      return 0
+    })
 
   return (
-    <div
-      className="min-h-screen"
-      style={{ background: "#f6f7f9" }}
-      dir="rtl"
-    >
-      <PublicNavbar
-        navigate={navigate}
-        currentScreen={currentScreen}
-      />
+    <div className="min-h-screen" style={{ background: "#f6f7f9" }} dir="rtl">
+      <PublicNavbar navigate={navigate} currentScreen={currentScreen} />
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         <div className="mb-6">
-          <h1
-            className="text-2xl font-black mb-1"
-            style={{ color: "#090c56" }}
-          >
+          <h1 className="text-2xl font-black mb-1" style={{ color: "#090c56" }}>
             دليل الأطباء والاستشاريين المعتمدين
           </h1>
 
-          <p
-            className="text-sm"
-            style={{ color: "#696a76" }}
-          >
+          <p className="text-sm" style={{ color: "#696a76" }}>
             تصفح وابحث بين أكثر من 120 استشاري طبي معتمد
           </p>
         </div>
@@ -213,17 +191,15 @@ export default function DoctorsScreen({
                   <button
                     key={specialty}
                     type="button"
-                    onClick={() =>
-                      handleSpecialtyChange(specialty)
-                    }
+                    onClick={() => handleSpecialtyChange(specialty)}
                     className="w-full text-right px-3 py-2 rounded-lg text-sm transition-all"
                     style={
                       selectedSpec === specialty
                         ? {
-                          background: "#090c56",
-                          color: "#fff",
-                          fontWeight: 700,
-                        }
+                            background: "#090c56",
+                            color: "#fff",
+                            fontWeight: 700,
+                          }
                         : { color: "#171827" }
                     }
                   >
@@ -251,14 +227,10 @@ export default function DoctorsScreen({
                 <input
                   type="checkbox"
                   checked={onlyAvailable}
-                  onChange={(event) =>
-                    setOnlyAvailable(event.target.checked)
-                  }
+                  onChange={(event) => setOnlyAvailable(event.target.checked)}
                 />
 
-                <span className="text-sm">
-                  متاح الآن فقط
-                </span>
+                <span className="text-sm">متاح الآن فقط</span>
               </label>
             </div>
 
@@ -288,10 +260,10 @@ export default function DoctorsScreen({
                   style={
                     sortBy === option.value
                       ? {
-                        background: "#fff0f3",
-                        color: "#ef003d",
-                        fontWeight: 700,
-                      }
+                          background: "#fff0f3",
+                          color: "#ef003d",
+                          fontWeight: 700,
+                        }
                       : { color: "#171827" }
                   }
                 >
@@ -314,9 +286,7 @@ export default function DoctorsScreen({
                 <input
                   type="text"
                   value={search}
-                  onChange={(event) =>
-                    setSearch(event.target.value)
-                  }
+                  onChange={(event) => setSearch(event.target.value)}
                   className="w-full pr-11 pl-4 py-3 rounded-xl text-sm"
                   style={{
                     border: "1px solid #e8e9f0",
@@ -366,10 +336,7 @@ export default function DoctorsScreen({
                             {doctor.name}
                           </h3>
 
-                          <p
-                            className="text-sm"
-                            style={{ color: "#ef003d" }}
-                          >
+                          <p className="text-sm" style={{ color: "#ef003d" }}>
                             {doctor.spec}
                           </p>
 
@@ -390,10 +357,7 @@ export default function DoctorsScreen({
                             {doctor.price} جنيه
                           </div>
 
-                          <div
-                            className="text-xs"
-                            style={{ color: "#696a76" }}
-                          >
+                          <div className="text-xs" style={{ color: "#696a76" }}>
                             رسوم الكشف
                           </div>
                         </div>
@@ -416,9 +380,7 @@ export default function DoctorsScreen({
 
                         <span
                           style={{
-                            color: doctor.available
-                              ? "#12b76a"
-                              : "#f79009",
+                            color: doctor.available ? "#12b76a" : "#f79009",
                           }}
                         >
                           ● {doctor.wait}
@@ -436,10 +398,7 @@ export default function DoctorsScreen({
                     <button
                       type="button"
                       onClick={() =>
-                        handleDoctorSelection(
-                          doctor,
-                          "doctor-profile"
-                        )
+                        handleDoctorSelection(doctor, "doctor-profile")
                       }
                       className="flex-1 py-2.5 rounded-xl text-sm font-semibold"
                       style={{
@@ -453,10 +412,7 @@ export default function DoctorsScreen({
                     <button
                       type="button"
                       onClick={() =>
-                        handleDoctorSelection(
-                          doctor,
-                          "booking-visit-type"
-                        )
+                        handleDoctorSelection(doctor, "booking-visit-type")
                       }
                       className="flex-1 py-2.5 rounded-xl text-sm font-bold"
                       style={{
@@ -481,13 +437,9 @@ export default function DoctorsScreen({
                     style={{ color: "#9b9caa" }}
                   />
 
-                  <p className="font-semibold">
-                    لا توجد نتائج لبحثك
-                  </p>
+                  <p className="font-semibold">لا توجد نتائج لبحثك</p>
 
-                  <p className="text-sm mt-1">
-                    جرب تغيير معايير البحث
-                  </p>
+                  <p className="text-sm mt-1">جرب تغيير معايير البحث</p>
                 </div>
               )}
             </div>
@@ -495,5 +447,5 @@ export default function DoctorsScreen({
         </div>
       </div>
     </div>
-  );
+  )
 }

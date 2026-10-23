@@ -1,7 +1,6 @@
-
-import { LuInfo, LuCircleCheck } from "react-icons/lu";
-import BookingSteps from "@/components/BookingSteps";
-import PublicNavbar from "@/components/PublicNavbar";
+import { LuInfo, LuCircleCheck } from "react-icons/lu"
+import BookingSteps from "@/components/BookingSteps"
+import PublicNavbar from "@/components/PublicNavbar"
 
 // booking: بيانات الحجز التي جمعتها الشاشات السابقة.
 // confirmBooking: الوظيفة المسؤولة عن حفظ الحجز والانتقال لصفحة النجاح.
@@ -12,18 +11,18 @@ export default function ReviewScreen({
   confirmBooking,
 }) {
   // استخراج البيانات لتسهيل قراءتها واستخدامها داخل الشاشة.
-  const doctor = booking?.doctor;
-  const visitType = booking?.visitType;
-  const patient = booking?.patient;
+  const doctor = booking?.doctor
+  const visitType = booking?.visitType
+  const patient = booking?.patient
 
   // إظهار شرطة بدل ترك مكان فارغ عند عدم توفر معلومة.
   const showValue = (value) => {
     if (value === null || value === undefined || value === "") {
-      return "غير محدد";
+      return "غير محدد"
     }
 
-    return value;
-  };
+    return value
+  }
 
   // تجهيز تفاصيل الحجز من البيانات المشتركة، وليس من بيانات تجريبية ثابتة.
   const details = [
@@ -37,9 +36,7 @@ export default function ReviewScreen({
     },
     {
       label: "التاريخ والوقت",
-      value: [booking?.date, booking?.time]
-        .filter(Boolean)
-        .join(" - "),
+      value: [booking?.date, booking?.time].filter(Boolean).join(" - "),
     },
     {
       label: "نوع الزيارة",
@@ -65,21 +62,14 @@ export default function ReviewScreen({
       label: "طريقة الدفع",
       value: booking?.paymentMethod,
     },
-  ];
+  ]
 
   // استخدام السعر المتاح في بيانات الحجز بدل كتابة مبلغ ثابت.
-  const totalPrice = visitType?.price ?? doctor?.price;
+  const totalPrice = visitType?.price ?? doctor?.price
 
   return (
-    <div
-      className="min-h-screen"
-      style={{ background: "#f6f7f9" }}
-      dir="rtl"
-    >
-      <PublicNavbar
-        navigate={navigate}
-        currentScreen={currentScreen}
-      />
+    <div className="min-h-screen" style={{ background: "#f6f7f9" }} dir="rtl">
+      <PublicNavbar navigate={navigate} currentScreen={currentScreen} />
 
       <div className="max-w-2xl mx-auto px-6 py-8">
         <BookingSteps current={5} />
@@ -91,10 +81,7 @@ export default function ReviewScreen({
           مراجعة وتأكيد الحجز
         </h1>
 
-        <p
-          className="text-sm text-center mb-6"
-          style={{ color: "#696a76" }}
-        >
+        <p className="text-sm text-center mb-6" style={{ color: "#696a76" }}>
           تأكد من صحة جميع التفاصيل قبل تأكيد الحجز
         </p>
 
@@ -106,10 +93,7 @@ export default function ReviewScreen({
             border: "1px solid #e8e9f0",
           }}
         >
-          <div
-            className="p-4"
-            style={{ background: "#090c56" }}
-          >
+          <div className="p-4" style={{ background: "#090c56" }}>
             <div className="flex items-center gap-3">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold"
@@ -126,25 +110,17 @@ export default function ReviewScreen({
                   {showValue(doctor?.name)}
                 </div>
 
-                <div
-                  className="text-sm"
-                  style={{ color: "#ffd6e0" }}
-                >
+                <div className="text-sm" style={{ color: "#ffd6e0" }}>
                   {showValue(doctor?.spec)}
                 </div>
               </div>
 
               <div className="mr-auto text-left">
                 <div className="text-xl font-black text-white">
-                  {totalPrice != null
-                    ? `${totalPrice} جنيه`
-                    : "غير محدد"}
+                  {totalPrice != null ? `${totalPrice} جنيه` : "غير محدد"}
                 </div>
 
-                <div
-                  className="text-xs"
-                  style={{ color: "#ffd6e0" }}
-                >
+                <div className="text-xs" style={{ color: "#ffd6e0" }}>
                   إجمالي المبلغ
                 </div>
               </div>
@@ -197,19 +173,10 @@ export default function ReviewScreen({
             توصيات هامة قبل الوصول:
           </p>
 
-          <ul
-            className="text-sm space-y-1"
-            style={{ color: "#696a76" }}
-          >
-            <li>
-              • يُرجى التواجد بمقر العيادة قبل الموعد بـ15 دقيقة.
-            </li>
-            <li>
-              • اصطحاب أي قراءات طبية حديثة إن وجدت.
-            </li>
-            <li>
-              • إحضار البطاقة القومية أو جواز السفر للتحقق.
-            </li>
+          <ul className="text-sm space-y-1" style={{ color: "#696a76" }}>
+            <li>• يُرجى التواجد بمقر العيادة قبل الموعد بـ15 دقيقة.</li>
+            <li>• اصطحاب أي قراءات طبية حديثة إن وجدت.</li>
+            <li>• إحضار البطاقة القومية أو جواز السفر للتحقق.</li>
           </ul>
         </div>
 
@@ -244,5 +211,5 @@ export default function ReviewScreen({
         </div>
       </div>
     </div>
-  );
+  )
 }

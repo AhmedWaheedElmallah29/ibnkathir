@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState } from "react"
 import {
   LuStar,
   LuCircleCheck,
@@ -7,8 +6,8 @@ import {
   LuLock,
   LuArrowRight,
   LuMapPin,
-} from "react-icons/lu";
-import PublicNavbar from "@/components/PublicNavbar";
+} from "react-icons/lu"
+import PublicNavbar from "@/components/PublicNavbar"
 
 const reviews = [
   {
@@ -26,7 +25,7 @@ const reviews = [
     rating: 4,
     text: "طبيب محترف ومتميز، والموعد كان في وقته.",
   },
-];
+]
 
 const defaultDoctor = {
   name: "د. مايكل تشن",
@@ -40,7 +39,7 @@ const defaultDoctor = {
   available: true,
   location: "التجمع الخامس",
   gender: "ذكر",
-};
+}
 
 const doctorDetails = {
   "د. مايكل تشن": {
@@ -75,8 +74,7 @@ const doctorDetails = {
     university: "كلية الطب",
     languages: "العربية، الإنجليزية",
     clinics: "3 عيادات",
-    description:
-      "متخصصة في طب الأطفال ومتابعة صحة الأطفال والرضع.",
+    description: "متخصصة في طب الأطفال ومتابعة صحة الأطفال والرضع.",
     tags: ["طب الأطفال", "الرضع", "متابعة النمو"],
   },
   "د. خالد إبراهيم": {
@@ -93,11 +91,10 @@ const doctorDetails = {
     university: "كلية الطب",
     languages: "العربية",
     clinics: "عيادتان",
-    description:
-      "متخصصة في أمراض النساء والتوليد وصحة المرأة ومتابعة الحالات.",
+    description: "متخصصة في أمراض النساء والتوليد وصحة المرأة ومتابعة الحالات.",
     tags: ["النساء والتوليد", "صحة المرأة", "المتابعة"],
   },
-};
+}
 
 export default function DoctorProfileScreen({
   navigate,
@@ -105,9 +102,9 @@ export default function DoctorProfileScreen({
   booking,
   selectDoctor,
 }) {
-  const [activeTab, setActiveTab] = useState("about");
+  const [activeTab, setActiveTab] = useState("about")
 
-  const doctor = booking?.doctor || defaultDoctor;
+  const doctor = booking?.doctor || defaultDoctor
   const details = doctorDetails[doctor.name] || {
     experience: "غير محدد",
     university: "غير محددة",
@@ -115,35 +112,28 @@ export default function DoctorProfileScreen({
     clinics: "غير محدد",
     description: `معلومات عن تخصص ${doctor.spec || doctor.specialty || "الطبيب"}.`,
     tags: [doctor.specialty || "التخصص الطبي"],
-  };
+  }
 
-  const doctorName = doctor.name || defaultDoctor.name;
-  const specialty = doctor.spec || doctor.specialty || "التخصص الطبي";
-  const price = doctor.fees ?? doctor.price ?? 0;
-  const rating = doctor.rating ?? 0;
-  const reviewCount = doctor.reviews ?? 0;
-  const location = doctor.location || "لم يُحدد موقع العيادة";
-  const available = doctor.available !== false;
-  const initial = doctorName.replace("د. ", "").charAt(0);
+  const doctorName = doctor.name || defaultDoctor.name
+  const specialty = doctor.spec || doctor.specialty || "التخصص الطبي"
+  const price = doctor.fees ?? doctor.price ?? 0
+  const rating = doctor.rating ?? 0
+  const reviewCount = doctor.reviews ?? 0
+  const location = doctor.location || "لم يُحدد موقع العيادة"
+  const available = doctor.available !== false
+  const initial = doctorName.replace("د. ", "").charAt(0)
 
   function startBooking() {
     if (selectDoctor) {
-      selectDoctor(doctor, "booking-visit-type");
+      selectDoctor(doctor, "booking-visit-type")
     } else {
-      navigate("booking-visit-type");
+      navigate("booking-visit-type")
     }
   }
 
   return (
-    <div
-      className="min-h-screen"
-      style={{ background: "#f6f7f9" }}
-      dir="rtl"
-    >
-      <PublicNavbar
-        navigate={navigate}
-        currentScreen={currentScreen}
-      />
+    <div className="min-h-screen" style={{ background: "#f6f7f9" }} dir="rtl">
+      <PublicNavbar navigate={navigate} currentScreen={currentScreen} />
 
       <div className="max-w-5xl mx-auto px-6 py-8">
         <button
@@ -220,10 +210,7 @@ export default function DoctorProfileScreen({
                         {price}
                       </div>
 
-                      <div
-                        className="text-xs"
-                        style={{ color: "#696a76" }}
-                      >
+                      <div className="text-xs" style={{ color: "#696a76" }}>
                         جنيه / كشف
                       </div>
                     </div>
@@ -418,45 +405,41 @@ export default function DoctorProfileScreen({
 
                 {activeTab === "schedule" && (
                   <div className="space-y-3">
-                    {[
-                      "السبت",
-                      "الأحد",
-                      "الاثنين",
-                      "الثلاثاء",
-                      "الأربعاء",
-                    ].map((day) => (
-                      <div
-                        key={day}
-                        className="flex items-center justify-between gap-3 flex-wrap p-3 rounded-xl"
-                        style={{ background: "#f9f9fb" }}
-                      >
-                        <span
-                          className="text-sm font-bold"
-                          style={{ color: "#090c56" }}
+                    {["السبت", "الأحد", "الاثنين", "الثلاثاء", "الأربعاء"].map(
+                      (day) => (
+                        <div
+                          key={day}
+                          className="flex items-center justify-between gap-3 flex-wrap p-3 rounded-xl"
+                          style={{ background: "#f9f9fb" }}
                         >
-                          {day}
-                        </span>
+                          <span
+                            className="text-sm font-bold"
+                            style={{ color: "#090c56" }}
+                          >
+                            {day}
+                          </span>
 
-                        <span
-                          className="text-sm"
-                          style={{ color: "#696a76" }}
-                        >
-                          03:00 م – 06:00 م
-                        </span>
+                          <span
+                            className="text-sm"
+                            style={{ color: "#696a76" }}
+                          >
+                            03:00 م – 06:00 م
+                          </span>
 
-                        <button
-                          type="button"
-                          onClick={startBooking}
-                          className="text-xs px-3 py-1.5 rounded-lg font-bold"
-                          style={{
-                            background: "#ef003d",
-                            color: "#fff",
-                          }}
-                        >
-                          احجز
-                        </button>
-                      </div>
-                    ))}
+                          <button
+                            type="button"
+                            onClick={startBooking}
+                            className="text-xs px-3 py-1.5 rounded-lg font-bold"
+                            style={{
+                              background: "#ef003d",
+                              color: "#fff",
+                            }}
+                          >
+                            احجز
+                          </button>
+                        </div>
+                      ),
+                    )}
                   </div>
                 )}
               </div>
@@ -471,10 +454,7 @@ export default function DoctorProfileScreen({
                 border: "1px solid #e8e9f0",
               }}
             >
-              <h3
-                className="font-bold mb-3"
-                style={{ color: "#090c56" }}
-              >
+              <h3 className="font-bold mb-3" style={{ color: "#090c56" }}>
                 احجز موعدًا الآن
               </h3>
 
@@ -507,17 +487,11 @@ export default function DoctorProfileScreen({
                 className="flex items-center justify-between p-3 rounded-xl mb-4"
                 style={{ background: "#f9f9fb" }}
               >
-                <span
-                  className="text-sm"
-                  style={{ color: "#696a76" }}
-                >
+                <span className="text-sm" style={{ color: "#696a76" }}>
                   رسوم الكشف
                 </span>
 
-                <span
-                  className="font-black"
-                  style={{ color: "#090c56" }}
-                >
+                <span className="font-black" style={{ color: "#090c56" }}>
                   {price} جنيه
                 </span>
               </div>
@@ -540,26 +514,17 @@ export default function DoctorProfileScreen({
                 style={{ color: "#696a76" }}
               >
                 <div className="flex items-center gap-2">
-                  <LuCircleCheck
-                    size={16}
-                    style={{ color: "#12b76a" }}
-                  />
+                  <LuCircleCheck size={16} style={{ color: "#12b76a" }} />
                   <span>تأكيد الحجز بعد إكمال البيانات</span>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <LuPill
-                    size={16}
-                    style={{ color: "#090c56" }}
-                  />
+                  <LuPill size={16} style={{ color: "#090c56" }} />
                   <span>متابعة تفاصيل الزيارة</span>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <LuLock
-                    size={16}
-                    style={{ color: "#090c56" }}
-                  />
+                  <LuLock size={16} style={{ color: "#090c56" }} />
                   <span>الحفاظ على بيانات المريض</span>
                 </div>
               </div>
@@ -568,5 +533,5 @@ export default function DoctorProfileScreen({
         </div>
       </div>
     </div>
-  );
+  )
 }
